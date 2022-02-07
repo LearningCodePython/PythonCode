@@ -9,8 +9,8 @@ ip = input("¿Direccion IP del AP? ")
 ssh.connect(
     hostname= ip,
     port=22,
-    username="admin",
-    password="!vmaria2017"
+    username="",
+    password=""
 )
  
 shell = ssh.invoke_shell()
