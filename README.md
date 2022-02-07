@@ -1,2 +1,2 @@
 # PythonCode
-app en python en mi aprendizaje
+Codigo python escrito en mi aprendisaje.
