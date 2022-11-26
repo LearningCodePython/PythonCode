@@ -2,13 +2,20 @@ import telnetlib
 from fileinput import close
 import ipaddress
 
-#Creamos la lista de IP
+# La intencios es crear un codigo que primero cree una lista de ip
+# Segundo pregunte cual el el puerto sip que deseamos configurar, lo almacene, y modifique todas las ONT
+# 
+#
+# Creamos la lista de IP y la almacenamos en el fichero ip.lst
+# En futuras revisiones debe ser preguntado al usuario y almacenado en una variable.
+
 net4 =ipaddress.ip_network('172.16.54.0/24')
 f = open ("ip.lst", "w")
 for x in net4.hosts():
     f.write(str(x) + '\n')
 f.close()
 
+# Creamos la función 
 def port(ip):
     try:
         user = "support"
@@ -29,7 +36,8 @@ def port(ip):
         tn.close()
     except OSError:
         print(f"La direccion {ip} no es una ONT o no comunica")
-    
+
+# Abrimos el listado de IP y lo recorremos ejecutando la función en cada interaccion.
 fichero = open('ip.lst', 'r')
 for linea in fichero:
 	if linea[-1] == '\n':
